@@ -26,6 +26,9 @@ x64/
 # Visual Studio Code files
 .vscode/
 
+# Repository-local .NET SDK
+.dotnet/
+
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*

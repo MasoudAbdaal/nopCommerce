@@ -1,0 +1,36 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "nopCommerce: Web (host, Development)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "nopCommerce: build (Debug)",
+      "program": "${workspaceFolder}/.dotnet/dotnet.exe",
+      "args": [
+        "${workspaceFolder}/src/Presentation/Nop.Web/bin/Debug/net9.0/Nop.Web.dll"
+      ],
+      "cwd": "${workspaceFolder}/src/Presentation/Nop.Web",
+      "stopAtEntry": false,
+      "justMyCode": false,
+      "requireExactSource": true,
+      "enableStepFiltering": false,
+      "console": "internalConsole",
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DOTNET_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "http://localhost:5000",
+        "DOTNET_ROOT": "${workspaceFolder}/.dotnet",
+        "DOTNET_MULTILEVEL_LOOKUP": "0",
+        "PATH": "${workspaceFolder}\\.dotnet;${env:PATH}",
+        "Logging__EventLog__LogLevel__Default": "None"
+      },
+      "serverReadyAction": {
+        "action": "openExternally",
+        "pattern": "\\bNow listening on:\\s+(https?://\\S+)",
+        "uriFormat": "%s"
+      }
+    }
+  ]
+}

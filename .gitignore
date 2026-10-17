@@ -24,7 +24,13 @@ x64/
 [Oo]ut/
 
 # Visual Studio Code files
-.vscode/
+# .vscode/*
+# !.vscode/launch.json
+# !.vscode/tasks.json
+# !.vscode/ensure-infrastructure.ps1
+
+# Repository-local .NET SDK used by the VS Code debug workflow
+.dotnet/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/

@@ -1,0 +1,63 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "nopCommerce: start infrastructure",
+      "type": "process",
+      "command": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}\\.vscode\\ensure-infrastructure.ps1"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "DOTNET_ROOT": "${workspaceFolder}\\.dotnet",
+          "DOTNET_MULTILEVEL_LOOKUP": "0",
+          "PATH": "${workspaceFolder}\\.dotnet;${env:PATH}"
+        }
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      }
+    },
+    {
+      "label": "nopCommerce: build (Debug)",
+      "type": "process",
+      "command": "${workspaceFolder}\\.dotnet\\dotnet.exe",
+      "args": [
+        "build",
+        "${workspaceFolder}\\src\\NopCommerce.sln",
+        "--configuration",
+        "Debug",
+        "/property:GenerateFullPaths=true",
+        "/consoleloggerparameters:NoSummary"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "DOTNET_ROOT": "${workspaceFolder}\\.dotnet",
+          "DOTNET_MULTILEVEL_LOOKUP": "0",
+          "PATH": "${workspaceFolder}\\.dotnet;${env:PATH}"
+        }
+      },
+      "dependsOn": "nopCommerce: start infrastructure",
+      "problemMatcher": "$msCompile",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      }
+    }
+  ]
+}
