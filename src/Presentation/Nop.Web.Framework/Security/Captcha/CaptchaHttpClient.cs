@@ -58,7 +58,6 @@ public partial class CaptchaHttpClient
             _webHelper.GetCurrentIpAddress());
 
         //get response
-        var response2 = await _httpClient.GetAsync(url);
         var response = await _httpClient.GetStringAsync(url);
         return JsonConvert.DeserializeObject<CaptchaResponse>(response);
 
